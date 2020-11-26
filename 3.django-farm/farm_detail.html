@@ -1,0 +1,23 @@
+<h1>{{ farm.name }}</h1>
+{% if farm.field_set.all %}
+    <table>
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Size</th>
+            <th>Produce</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for field in farm.field_set.all %}
+            <tr>
+                <td>field.description</td>
+                <td>field.size</td>
+                <td>field.produce</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No fields for farm</p>
+{% endif %}

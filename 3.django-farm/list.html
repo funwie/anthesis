@@ -1,0 +1,27 @@
+{% if farms %}
+    <h1>Farms</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Farm</th>
+            <th>Description</th>
+            <th>Size</th>
+            <th>Produce</th>
+        </tr>
+        </thead>
+        {% for farm in farms %}
+        <tbody>
+            {% for field in farm.field_set.all %}
+                <tr>
+                    <td>farm.name</td>
+                    <td>field.description</td>
+                    <td>field.size</td>
+                    <td>field.produce</td>
+                </tr> 
+            {% endfor %}
+        </tbody>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No farms are available.</p>
+{% endif %}
